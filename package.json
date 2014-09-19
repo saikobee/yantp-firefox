@@ -1,0 +1,9 @@
+{
+    "name": "yantp-firefox",
+    "title": "yantp-firefox",
+    "id": "yantp-firefox@mockbrian.com",
+    "description": "yet another new tab page",
+    "author": "Brian Mock <brian@mockbrian.com>",
+    "license": "MIT",
+    "version": "0.1"
+}
