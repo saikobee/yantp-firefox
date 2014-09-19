@@ -1,6 +1,22 @@
+const SEPARATOR_TEXT = "/";
+
 function render(node, mark) {
-    var t = mark.prefix.concat([mark.title]).join(" / ");
-    var text = document.createTextNode(t);
+    var folderFragment = document.createDocumentFragment();
+    mark.prefix.forEach(function(folder) {
+        var folderElement = document.createElement("span");
+        var separatorElement = document.createElement("span");
+
+        folderElement.className = "folder";
+        folderElement.appendChild(document.createTextNode(folder));
+
+        separatorElement.className = "separator";
+        separatorElement.appendChild(document.createTextNode(SEPARATOR_TEXT));
+
+        folderFragment.appendChild(folderElement);
+        folderFragment.appendChild(separatorElement);
+    });
+
+    var text = document.createTextNode(mark.title);
 
     var bookmark = document.createElement("div");
     bookmark.className = "bookmark";
@@ -13,9 +29,16 @@ function render(node, mark) {
     anchor.appendChild(text);
 
     bookmark.appendChild(favicon);
+    bookmark.appendChild(folderFragment);
     bookmark.appendChild(anchor);
 
     node.appendChild(bookmark);
+}
+
+function renderAll(node, marks) {
+    marks.forEach(function(mark) {
+        render(node, mark);
+    });
 }
 
 function container(name) {
@@ -44,9 +67,14 @@ function addTo(name) {
     };
 }
 
-function main() {
-    // self.port.on("render", render);
+function addAllTo(name) {
+    var target = document.getElementById("container-" + name);
+    return function(mark) {
+        renderAll(target, mark);
+    };
+}
 
+function main() {
     var tabs = [
         "menu",
         "toolbar",
@@ -55,8 +83,7 @@ function main() {
 
     tabs.forEach(function(name) {
         document.body.appendChild(container(name));
-        // clear(name);
-        self.port.on("add-to-" + name, addTo(name));
+        self.port.on("add-all-to-" + name, addAllTo(name));
     });
 }
 

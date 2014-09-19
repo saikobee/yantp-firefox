@@ -31,6 +31,15 @@ body {
     text-overflow: ellipsis;
 }
 
+.bookmark .folder {
+    color: #888;
+}
+
+.bookmark .separator {
+    color: #ccc;
+    margin: 0 8px;
+}
+
 .bookmark a,
 .bookmark img {
     vertical-align: middle;
