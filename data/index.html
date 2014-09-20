@@ -9,6 +9,7 @@
 <body>
     <div class="navbar">
         <!-- ko foreach: tabs --><button
+        class="tab"
         data-bind="
             text: $root.names[$data],
             click: function() { $root.current($data) },
