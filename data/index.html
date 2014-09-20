@@ -7,5 +7,28 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <div class="navbar">
+        <!-- ko foreach: tabs --><button
+        data-bind="
+            text: $root.names[$data],
+            click: function() { $root.current($data) },
+            css: { active: $root.current() === $data }
+        "></button
+        ><!-- /ko -->
+    </div>
+    <div class="containers" data-bind="foreach: tabs">
+        <div data-bind="visible: $root.current() === $data">
+            <!-- ko foreach: $root.bookmarks[$data] -->
+            <a class="bookmark" data-bind="attr: { href: url }">
+                <img class="favicon" data-bind="attr: { src: favicon }"></span>
+                <!-- ko foreach: prefix -->
+                <span class="folder" data-bind="text: $data"></span>
+                <span class="separator">/</span>
+                <!-- /ko -->
+                <span class="title" data-bind="text: title"></span>
+            </a>
+            <!-- /ko -->
+        </div>
+    </div>
 </body>
 </html>
