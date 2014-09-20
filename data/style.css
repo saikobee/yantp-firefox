@@ -24,6 +24,9 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding: 10px;
 
+    color: inherit;
+    text-decoration: none;
+
     cursor: pointer;
 
     white-space: nowrap;
@@ -40,12 +43,12 @@ body {
     margin: 0 8px;
 }
 
-.bookmark a,
-.bookmark img {
+.bookmark .title,
+.bookmark .favicon {
     vertical-align: middle;
 }
 
-.bookmark img {
+.bookmark .favicon {
     margin-right: 16px;
     background: #fff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.10);
@@ -55,12 +58,7 @@ body {
     height: 16px;
 }
 
-.bookmark a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.bookmark:hover a {
+.bookmark:hover .title {
     text-decoration: underline;
     color: #729fcf;
 }

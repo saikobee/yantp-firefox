@@ -18,19 +18,21 @@ function render(node, mark) {
 
     var text = document.createTextNode(mark.title);
 
-    var bookmark = document.createElement("div");
+    var bookmark = document.createElement("a");
+    bookmark.href = mark.url;
     bookmark.className = "bookmark";
 
     var favicon = document.createElement("img");
+    favicon.className = "favicon";
     favicon.src = mark.favicon;
 
-    var anchor = document.createElement("a");
-    anchor.href = mark.url;
-    anchor.appendChild(text);
+    var title = document.createElement("span");
+    title.className = "title";
+    title.appendChild(text);
 
     bookmark.appendChild(favicon);
     bookmark.appendChild(folderFragment);
-    bookmark.appendChild(anchor);
+    bookmark.appendChild(title);
 
     node.appendChild(bookmark);
 }
