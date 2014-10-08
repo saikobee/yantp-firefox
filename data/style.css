@@ -12,11 +12,11 @@ html {
         serif;
 }
 
+.other-bar,
 .navbar {
     z-index: 1;
 
     position: fixed;
-    top: 0;
     left: 0;
     right: 0;
     height: 42px;
@@ -33,20 +33,46 @@ html {
     overflow-x: auto;
 }
 
+.navbar {
+    top: 0;
+}
+
+.other-bar {
+    bottom: 0;
+}
+
 a {
     color: inherit;
     text-decoration: none;
 }
 
+.other-bar .link,
 .navbar .tab {
     height: 100%;
-    min-width: 6em;
     margin: 0 4px;
     border: 0;
     font: inherit;
     color: inherit;
     text-align: inherit;
     background: transparent;
+}
+
+.other-bar .link:hover {
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.other-bar .link:not(:last-child):after {
+    content: " / ";
+    display: inline-block;
+    color: #ccc;
+    margin-left: 12px;
+    margin-right: -12px;
+}
+
+.navbar .tab {
+    min-width: 6em;
 }
 
 .navbar .tab:hover {
@@ -66,7 +92,7 @@ a {
     overflow-y: auto;
     position: fixed;
     top: 42px;
-    bottom: 0;
+    bottom: 42px;
     left: 0;
     right: 0;
 }

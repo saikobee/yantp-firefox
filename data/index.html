@@ -9,6 +9,7 @@
 <body>
     <div class="navbar">
         <!-- ko foreach: tabs --><button
+        type="button"
         class="tab"
         data-bind="
             text: $root.names[$data],
@@ -30,6 +31,15 @@
             </a>
             <!-- /ko -->
         </div>
+    </div>
+    <div class="other-bar">
+        <!-- ko foreach: otherLinks --><button
+        type="button"
+        class="link"
+        data-bind="
+            text: name,
+            click: function() { $root.handleLink($data) }
+        "></button><!-- /ko -->
     </div>
 </body>
 </html>
