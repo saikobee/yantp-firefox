@@ -37,9 +37,9 @@ const $root = {
         }
     },
     names: {
-        menu: "Menu",
-        toolbar: "Toolbar",
-        unsorted: "Unsorted"
+        menu: "Bookmarks Menu",
+        toolbar: "Bookmarks Toolbar",
+        unsorted: "Unsorted Bookmarks"
     }
 };
 

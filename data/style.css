@@ -73,6 +73,7 @@ a {
 
 .navbar .tab {
     min-width: 6em;
+    margin: 0 10px;
 }
 
 .navbar .tab:hover {
