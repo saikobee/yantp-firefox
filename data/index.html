@@ -8,38 +8,19 @@
 </head>
 <body>
     <div class="navbar">
-        <!-- ko foreach: tabs --><button
-        type="button"
-        class="tab"
-        data-bind="
-            text: $root.names[$data],
-            click: function() { $root.current($data) },
-            css: { active: $root.current() === $data }
-        "></button
-        ><!-- /ko -->
+        <button class="tab" type="button" id="button-menu">Bookmarks Menu</button>
+        <button class="tab" type="button" id="button-toolbar">Bookmarks Toolbar</button>
+        <button class="tab" type="button" id="button-unsorted">Unsorted Bookmarks</button>
     </div>
     <div class="containers" data-bind="foreach: tabs">
-        <div data-bind="visible: $root.current() === $data">
-            <!-- ko foreach: $root.bookmarks[$data] -->
-            <a class="bookmark" data-bind="attr: { href: url }">
-                <img class="favicon" data-bind="attr: { src: favicon }"></span>
-                <!-- ko foreach: prefix -->
-                <span class="folder" data-bind="text: $data"></span>
-                <span class="separator">/</span>
-                <!-- /ko -->
-                <span class="title" data-bind="text: title"></span>
-            </a>
-            <!-- /ko -->
-        </div>
+        <div id="container-menu"></div>
+        <div id="container-toolbar"></div>
+        <div id="container-unsorted"></div>
     </div>
     <div class="other-bar">
-        <!-- ko foreach: otherLinks --><button
-        type="button"
-        class="link"
-        data-bind="
-            text: name,
-            click: function() { $root.handleLink($data) }
-        "></button><!-- /ko -->
+        <button class="link" type="button" id="other-addons">Add-ons</button>
+        <button class="link" type="button" id="other-preferences">Preferences</button>
+        <button class="link" type="button" id="other-config">Config</button>
     </div>
 </body>
 </html>
